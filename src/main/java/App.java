@@ -112,8 +112,7 @@ public class App {
                 // Wait for a message
                 Message message = consumer.receive(1000);
 
-                if (message instanceof TextMessage) {
-                    TextMessage textMessage = (TextMessage) message;
+                if (message instanceof TextMessage textMessage) {
                     String text = textMessage.getText();
                     System.out.println("Received: " + text);
                 } else {
@@ -130,7 +129,7 @@ public class App {
         }
 
         public synchronized void onException(JMSException ex) {
-            System.out.println("JMS Exception occured.  Shutting down client.");
+            System.out.println("JMS Exception occurred.  Shutting down client.");
         }
     }
 }
